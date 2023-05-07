@@ -1,0 +1,18 @@
+#!/bin/sh -e
+
+snapctl set port=80
+
+mkdir -p $SNAP_DATA/conf
+mkdir -p $SNAP_DATA/html
+mkdir -p $SNAP_DATA/logs
+mkdir -p $SNAP_DATA/temp
+
+cp $SNAP/conf/mime.types $SNAP_DATA/conf/
+
+cat << EOF > $SNAP_DATA/html/index.html
+<html>
+<body>
+<p>nginx</p>
+</body>
+</html>
+EOF
